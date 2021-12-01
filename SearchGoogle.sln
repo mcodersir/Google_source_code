@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchGoogle", "SearchGoogle\SearchGoogle.csproj", "{EDED8AF7-DB0C-47E3-8505-C35FF1BDDFBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDED8AF7-DB0C-47E3-8505-C35FF1BDDFBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDED8AF7-DB0C-47E3-8505-C35FF1BDDFBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDED8AF7-DB0C-47E3-8505-C35FF1BDDFBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDED8AF7-DB0C-47E3-8505-C35FF1BDDFBE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,2888 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GoogleSearchAPI</name>
+    </assembly>
+    <members>
+        <member name="T:Google.API.Search.GvideoSearchClient">
+            <summary>
+            The client for video search.
+            </summary>
+        </member>
+        <member name="T:Google.API.GoogleClient">
+            <summary>
+            The abstract base class for all google service client classes.
+            </summary>
+        </member>
+        <member name="P:Google.API.GoogleClient.AcceptLanguage">
+            <summary>
+            This optional argument supplies the host language of the application making the request.
+            If this argument is not present then the system will choose a value based on the value of the <b>Accept-Language</b> http header. If this header is not present, a value of <b>en</b> is assumed.
+            </summary>
+            <value>The accept language.</value>
+        </member>
+        <member name="P:Google.API.GoogleClient.ApiKey">
+            <summary>
+            This optional argument supplies the application's key.
+            If specified, it must be a valid key associated with your site which is validated against the passed referer header. The advantage of supplying a key is so that we can identify and contact you should something go wrong with your application. Without a key, we will still take the same appropriate measures on our side, but we will not be able to contact you. It is definitely best for you to pass a key.
+            </summary>
+            <value>The API key.</value>
+        </member>
+        <member name="P:Google.API.GoogleClient.Referrer">
+            <summary>
+            Gets or sets the http referrer header. Applications MUST always include a valid and accurate http referer header in their requests.
+            The default value is <a href ="http://code.google.com/p/google-api-for-dotnet/">http://code.google.com/p/google-api-for-dotnet/</a>.
+            </summary>
+            <value>The referrer.</value>
+        </member>
+        <member name="P:Google.API.GoogleClient.OpenTimeout">
+            <summary>
+            Gets or sets the interval of time after which the open method, invoked by a communication object, times out.
+            </summary>
+            <returns>The <see cref="T:System.TimeSpan"/> that specifies the interval of time to wait for the open method to time out.</returns>
+        </member>
+        <member name="P:Google.API.GoogleClient.CloseTimeout">
+            <summary>
+            Gets or sets the interval of time after which the close method, invoked by a communication object, times out.
+            </summary>
+            <returns>The <see cref="T:System.TimeSpan"/> that specifies the interval of time to wait for the close method to time out.</returns>
+        </member>
+        <member name="P:Google.API.GoogleClient.SendTimeout">
+            <summary>
+            Gets or sets the interval of time after which the send method, invoked by a communication object, times out.
+            </summary>
+            <returns>The <see cref="T:System.TimeSpan"/> that specifies the interval of time to wait for the send method to time out.</returns>
+        </member>
+        <member name="P:Google.API.GoogleClient.ReceiveTimeout">
+            <summary>
+            Gets or sets the interval of time after which the receive method, invoked by a communication object, times out.
+            </summary>
+            <returns>The <see cref="T:System.TimeSpan"/> that specifies the interval of time to wait for the receive method to time out.</returns>
+        </member>
+        <member name="M:Google.API.Search.GvideoSearchClient.Search(System.String,System.Int32)">
+            <summary>
+            Search video.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="M:Google.API.Search.GvideoSearchClient.Search(System.String,System.Int32,Google.API.Search.SortType)">
+            <summary>
+            Search video.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="sortBy">The way to order results.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="T:Google.API.GoogleAPIException">
+            <summary>
+            Google API exception.
+            </summary>
+        </member>
+        <member name="M:Google.API.GoogleAPIException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Google.API.GoogleAPIException"/> class.
+            </summary>
+        </member>
+        <member name="M:Google.API.GoogleAPIException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Google.API.GoogleAPIException"/> class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Google.API.GoogleAPIException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Google.API.GoogleAPIException"/> class with a specified error message and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference (<b>Nothing</b> in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:Google.API.GoogleAPIException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Google.API.GoogleAPIException"/> class with serialized data.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="T:Google.API.Search.INewsImage">
+            <summary>
+            A image that represents a news article.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.INewsImage.Url">
+            <summary>
+            Gets the the URL of the result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.INewsImage.OriginalContextUrl">
+            <summary>
+            Gets the URL of the page containing the image.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.INewsImage.Publisher">
+            <summary>
+            Gets the name of the publisher of the image.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.INewsImage.TbImage">
+            <summary>
+            Gets a thumbnail image.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GnewsImage.Title">
+            <summary>
+            supplies the title of the article associated with the image
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GnewsImage.TitleNoFormatting">
+            <summary>
+            same as above but stripped of HTML formatting
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GnewsImage.Url">
+            <summary>
+            supplies the URL of the image
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GnewsImage.OriginalContextUrl">
+            <summary>
+            supplies the URL of the article that contains this image. The image, when displayed, should normally link through this URL
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GnewsImage.Publisher">
+            <summary>
+            supplies the publisher of the news article containing the image. The suggested user interface is to display this under or in close proximity to the image, hyper linked through the .url property from above
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GnewsImage.TbWidth">
+            <summary>
+            supplies the width of the image referenced above. The standard size of this image is 80 pixels wide and 50 pixels tall
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GnewsImage.TbHeight">
+            <summary>
+            supplies the height of the image referenced above. The standard size of this image is 80 pixels wide and 50 pixels tall
+            </summary>
+        </member>
+        <member name="T:Google.API.Search.ITbImage">
+            <summary>
+            A thumbnail image.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.ITbImage.Url">
+            <summary>
+            Gets the url of the thumbnail image.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.ITbImage.Width">
+            <summary>
+            Gets the width of the thumbnail image.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.ITbImage.Height">
+            <summary>
+            Gets the height of the thumbnail image.
+            </summary>
+        </member>
+        <member name="T:Google.API.Search.GwebSearcher">
+            <summary>
+            Utility class for Google Web Search service.
+            </summary>
+        </member>
+        <member name="M:Google.API.Search.GwebSearcher.Search(System.String,System.Int32)">
+            <summary>
+            Search.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;IWebResult&gt; results = GwebSearcher.Search("Google API for .NET", 8);
+            foreach(IWebResult result in results)
+            {
+                Console.WriteLine("{0} - {1}", result.Title, result.Content);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Google.API.Search.GwebSearcher.Search(System.String,System.Int32,Google.API.Language)">
+            <summary>
+            Search.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="language">The language you want to search.</param>
+            <returns>The result itmes.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;IWebResult&gt; results = GwebSearcher.Search("Google API for .NET", 32, Language.ChineseSimplified);
+            foreach(IWebResult result in results)
+            {
+                Console.WriteLine("{0} - {1}", result.Title, result.Content);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Google.API.Search.GwebSearcher.Search(System.String,System.Int32,Google.API.Language,Google.API.Search.SafeLevel)">
+            <summary>
+            Search.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="language">The language you want to search.</param>
+            <param name="safeLevel">The search safety level.</param>
+            <returns>The result itmes.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;IWebResult&gt; results = GwebSearcher.Search("Google API for .NET", 20, Language.ChineseSimplified, SafeLevel.active);
+            foreach(IWebResult result in results)
+            {
+                Console.WriteLine("{0} - {1}", result.Title, result.Content);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="T:Google.API.Search.GvideoSearcher">
+            <summary>
+            Utility class for Google Video Search service.
+            </summary>
+        </member>
+        <member name="M:Google.API.Search.GvideoSearcher.Search(System.String,System.Int32)">
+            <summary>
+            Search video.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;IVideoResult&gt; results = GvideoSearcher.Search("South Park", 32);
+            foreach(IVideoResult result in results)
+            {
+                Console.WriteLine("[{0} - {1} seconds by {2}] {3} => {4}", result.Title, result.Duration, result.Publisher, result.Content, result.Url);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Google.API.Search.GvideoSearcher.Search(System.String,System.Int32,Google.API.Search.SortType)">
+            <summary>
+            Search video.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="sortBy">The way to order results.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;IVideoResult&gt; results = GvideoSearcher.Search("Metal Gear Solid", 10, SortType.date);
+            foreach(IVideoResult result in results)
+            {
+                Console.WriteLine("[{0} - {1} seconds by {2}] {3} => {4}", result.Title, result.Duration, result.Publisher, result.Content, result.Url);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="T:Google.API.Search.GbookSearcher">
+            <summary>
+            Utility class for Google Book Search service.
+            </summary>
+        </member>
+        <member name="M:Google.API.Search.GbookSearcher.Search(System.String,System.Int32)">
+            <summary>
+            Search books.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;IBookResult&gt; results = GbookSearcher.Search("Grimm's Fairy Tales", 10);
+            foreach(IBookResult result in results)
+            {
+                Console.WriteLine("{0} [by {1} - {2} - {3} pages] {4}", result.Title, result.Authors, result.PublishedYear, result.PageCount, result.BookId);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Google.API.Search.GbookSearcher.Search(System.String,System.Int32,System.Boolean)">
+            <summary>
+            Search books.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="fullViewOnly">Whether to restrict the search to "full view" books.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;IBookResult&gt; results = GbookSearcher.Search("love", 4, true);
+            foreach(IBookResult result in results)
+            {
+                Console.WriteLine("{0} [by {1} - {2} - {3} pages] {4}", result.Title, result.Authors, result.PublishedYear, result.PageCount, result.BookId);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Google.API.Search.GbookSearcher.Search(System.String,System.Int32,System.Boolean,System.String)">
+            <summary>
+            Search books.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="fullViewOnly">Whether to restrict the search to "full view" books.</param>
+            <param name="library">The specified user-defined library. If it not null, the search will restrict the search to this library.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;IBookResult&gt; results = GbookSearcher.Search("Cookbook", 32, fales, null);
+            foreach(IBookResult result in results)
+            {
+                Console.WriteLine("{0} [by {1} - {2} - {3} pages] {4}", result.Title, result.Authors, result.PublishedYear, result.PageCount, result.BookId);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="T:Google.API.Search.ILocalResult">
+            <summary>
+            Local search result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.ILocalResult.Title">
+            <summary>
+            Gets the title.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.ILocalResult.Url">
+            <summary>
+            Gets the the URL of the result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.ILocalResult.Latitude">
+            <summary>
+            Gets the latitude value of the result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.ILocalResult.Longitude">
+            <summary>
+            Gets the longitude value of the result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.ILocalResult.StreetAddress">
+            <summary>
+            Gets the street address and number for the given result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.ILocalResult.City">
+            <summary>
+            Gets the city name for the result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.ILocalResult.Region">
+            <summary>
+            Gets the region name for the result (e.g., in the us, this is typically a state abbreviation, in other regions it might be a province, etc.).
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.ILocalResult.Country">
+            <summary>
+            Gets the country name for the result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.ILocalResult.PhoneNumbers">
+            <summary>
+            Gets an array of phone numbers.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.ILocalResult.AddressLines">
+            <summary>
+            Supplies an array consisting of the mailing address lines for this result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.ILocalResult.DirectionUrl">
+            <summary>
+            Gets a url that can be used to provide driving directions from the center of the set of search results to this search result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.ILocalResult.ToHereDirectionUrl">
+            <summary>
+            Gets a url that can be used to provide driving directions from a user specified location to this search result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.ILocalResult.FromHereDirectionUrl">
+            <summary>
+            Gets a url that can be used to provide driving directions from this search result to a user specified location.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.ILocalResult.StaticMap">
+            <summary>
+            Gets a static map image representation of the current result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.ILocalResult.ListingType">
+            <summary>
+            Gets the type of this result which can either be "local" in the case of a local business listing or geocode result, or "kml" in the case of a KML listing.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.ILocalResult.Content">
+            <summary>
+            For "kml" results, this property contains a content snippet associated with the KML result. For "local" results, this property is the empty string.
+            </summary>
+        </member>
+        <member name="T:Google.API.Search.GwebSearchClient">
+            <summary>
+            The client for web search.
+            </summary>
+        </member>
+        <member name="M:Google.API.Search.GwebSearchClient.Search(System.String,System.Int32)">
+            <summary>
+            Search.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="M:Google.API.Search.GwebSearchClient.Search(System.String,System.Int32,Google.API.Language)">
+            <summary>
+            Search.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="language">The language you want to search.</param>
+            <returns>The result itmes.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="M:Google.API.Search.GwebSearchClient.Search(System.String,System.Int32,Google.API.Language,Google.API.Search.SafeLevel)">
+            <summary>
+            Search.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="language">The language you want to search.</param>
+            <param name="safeLevel">The search safety level.</param>
+            <returns>The result itmes.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="M:Google.API.Search.GwebSearchClient.Search(System.String,System.Int32,System.String,System.String,Google.API.Search.SafeLevel,Google.API.Language,System.Boolean)">
+            <summary>
+            Search.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="customSearchId">This optional argument supplies the unique id for the Custom Search Engine that should be used for this request.</param>
+            <param name="customSearchReference">This optional argument supplies the url of a linked Custom Search Engine specification that should be used to satisfy this request.</param>
+            <param name="safeLevel">The search safety level.</param>
+            <param name="language">The language you want to search.</param>
+            <param name="duplicateFilter">This optional argument controls turning on or off the duplicate content filter. Default value is true.</param>
+            <returns>The result itmes.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="T:Google.API.Search.GnewsSearchClient">
+            <summary>
+            The client for news search.
+            </summary>
+        </member>
+        <member name="M:Google.API.Search.GnewsSearchClient.Search(System.String,System.Int32)">
+            <summary>
+            Search news.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="M:Google.API.Search.GnewsSearchClient.Search(System.String,System.Int32,Google.API.Search.SortType)">
+            <summary>
+            Search news.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="sortBy">The way to order results.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="M:Google.API.Search.GnewsSearchClient.Search(System.String,System.Int32,System.String)">
+            <summary>
+            Search news.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="geo">A particular location of the news. You must supply either a city, state, country, or zip code as in "Santa Barbara" or "British Columbia" or "Peru" or "93108".</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="M:Google.API.Search.GnewsSearchClient.Search(System.String,System.Int32,System.String,Google.API.Search.SortType)">
+            <summary>
+            Search news.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="geo">A particular location of the news. You must supply either a city, state, country, or zip code as in "Santa Barbara" or "British Columbia" or "Peru" or "93108".</param>
+            <param name="sortBy">The way to order results.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="M:Google.API.Search.GnewsSearchClient.Search(System.String,System.Int32,System.String,Google.API.Search.SortType,System.String,System.String,System.String)">
+            <summary>
+            Search news.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="geo">A particular location of the news. You must supply either a city, state, country, or zip code as in "Santa Barbara" or "British Columbia" or "Peru" or "93108".</param>
+            <param name="sortBy">The way to order results.</param>
+            <param name="quoteId">This optional argument tells the news search system to scope search results to include only quote typed results.</param>
+            <param name="topic">This optional argument tells the news search system to scope search results to a particular topic.</param>
+            <param name="edition">This optional argument tells the news search system which edition of news to pull results from.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="M:Google.API.Search.GnewsSearchClient.SearchLocal(System.String,System.Int32)">
+            <summary>
+            Search the latest local news.
+            </summary>
+            <param name="geo">A particular location of the news. You must supply either a city, state, country, or zip code as in "Santa Barbara" or "British Columbia" or "Peru" or "93108".</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="M:Google.API.Search.GnewsSearchClient.SearchLocal(System.String,System.Int32,Google.API.Search.SortType)">
+            <summary>
+            Search the latest local news.
+            </summary>
+            <param name="geo">A particular location of the news. You must supply either a city, state, country, or zip code as in "Santa Barbara" or "British Columbia" or "Peru" or "93108".</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="sortBy">The way to order results.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="P:Google.API.Search.GlocalResult.GSearchResultClass">
+            <summary>
+            Indicates the "type" of result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GlocalResult.Title">
+            <summary>
+            Supplies the title for the result. In some cases, the title and the streetAddress are the same. This typically occurs when the search term is a street address such as 1231 Lisa Lane, Los Altos, CA. 
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GlocalResult.TitleNoFormatting">
+            <summary>
+            Supplies the title, but unlike .title, this property is stripped of html markup (e.g., &lt;b&gt;, &lt;i&gt;, etc.) 
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GlocalResult.Url">
+            <summary>
+            Supplies a url to a Google Maps Details page associated with the search result 
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GlocalResult.Latitude">
+            <summary>
+            Supplies the latitude value of the result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GlocalResult.Longitude">
+            <summary>
+            Supplies the longitude value of the result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GlocalResult.StreetAddress">
+            <summary>
+            Supplies the street address and number for the given result. Note:, in some cases, this property may be set to "" if the result has no known street address. address line. 
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GlocalResult.City">
+            <summary>
+            Supplies the city name for the result. Note:, in some cases, this property may be set to "". 
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GlocalResult.Region">
+            <summary>
+            Supplies a region name for the result (e.g., in the us, this is typically a state abbreviation, in other regions it might be a province, etc.) Note:, in some cases, this property may be set to "". 
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GlocalResult.Country">
+            <summary>
+            Supplies a country name for the result. Note:, in some cases, this property may be set to "". 
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GlocalResult.PhoneNumbers">
+            <summary>
+            Supplies an array of phone number objects
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GlocalResult.AddressLines">
+            <summary>
+            Supplies an array consisting of the mailing address lines for this result
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GlocalResult.DirectionUrl">
+            <summary>
+            Supplies a url that can be used to provide driving directions from the center of the set of search results to this search result. Note, in some cases this property may be missing or null.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GlocalResult.ToHereDirectionUrl">
+            <summary>
+            Supplies a url that can be used to provide driving directions from a user specified location to this search result. Note, in some cases this property may be missing or null.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GlocalResult.FromHereDirectionUrl">
+            <summary>
+            Supplies a url that can be used to provide driving directions from this search result to a user specified location. Note, in some cases this property may be missing or null.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GlocalResult.StaticMapUrl">
+            <summary>
+            Supplies a url to a static map image representation of the current result. The image is 150px wide by 100px tall with a single marker representing the current location. Expected usage is to hyperlink this image using the url property.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GlocalResult.ListingType">
+            <summary>
+            This property indicates the type of this result which can either be "local" in the case of a local business listing or geocode result, or "kml" in the case of a KML listing. 
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GlocalResult.Content">
+            <summary>
+            For "kml" results, this property contains a content snippet associated with the KML result. For "local" results, this property is the empty string.
+            </summary>
+        </member>
+        <member name="T:Google.API.Language">
+            <summary>
+            The enum of languages.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Unknown">
+            <summary>
+            Unknown. Default value.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Afrikaans">
+            <summary>
+            Afrikaans.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Albanian">
+            <summary>
+            Albanian.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Amharic">
+            <summary>
+            Amharic.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Arabic">
+            <summary>
+            Arabic.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Armenian">
+            <summary>
+            Armenian.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Azerbaijani">
+            <summary>
+            Azerbaijani.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Basque">
+            <summary>
+            Basque.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Belarusian">
+            <summary>
+            Belarusian.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Bengali">
+            <summary>
+            Bengali.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Bihari">
+            <summary>
+            Bihari.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Bulgarian">
+            <summary>
+            Bulgarian.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Burmese">
+            <summary>
+            Burmese.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Catalan">
+            <summary>
+            Catalan.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Cherokee">
+            <summary>
+            Cherokee.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Chinese">
+            <summary>
+            Chinese.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.ChineseSimplified">
+            <summary>
+            Chinese simplified.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.ChineseTraditional">
+            <summary>
+            Chinese traditional.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Croatian">
+            <summary>
+            Croatian.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Czech">
+            <summary>
+            Czech.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Danish">
+            <summary>
+            Danish.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Dhivehi">
+            <summary>
+            Dhivehi.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Dutch">
+            <summary>
+            Dutch.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.English">
+            <summary>
+            English.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Esperanto">
+            <summary>
+            Esperanto.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Estonian">
+            <summary>
+            Estonian.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Filipino">
+            <summary>
+            Filipino.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Finnish">
+            <summary>
+            Finnish.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.French">
+            <summary>
+            French.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Galician">
+            <summary>
+            Galician.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Georgian">
+            <summary>
+            Georgian.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.German">
+            <summary>
+            German.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Greek">
+            <summary>
+            Greek.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Guarani">
+            <summary>
+            Guarani.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Gujarati">
+            <summary>
+            Gujarati.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Hebrew">
+            <summary>
+            Hebrew.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Hindi">
+            <summary>
+            Hindi.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Hungarian">
+            <summary>
+            Hungarian.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Icelandic">
+            <summary>
+            Icelandic.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Indonesian">
+            <summary>
+            Indonesian.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Inuktitut">
+            <summary>
+            Inuktitut.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Italian">
+            <summary>
+            Italian.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Japanese">
+            <summary>
+            Japanese.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Kannada">
+            <summary>
+            Kannada.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Kazakh">
+            <summary>
+            Kazakh.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Khmer">
+            <summary>
+            Khmer.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Korean">
+            <summary>
+            Korean.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Kurdish">
+            <summary>
+            Kurdish.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Kyrgyz">
+            <summary>
+            Kyrgyz.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Laothian">
+            <summary>
+            Laothian.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Latvian">
+            <summary>
+            Latvian.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Lithuanian">
+            <summary>
+            Lithuanian.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Macedonian">
+            <summary>
+            Macedonian.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Malay">
+            <summary>
+            Malay.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Malayalam">
+            <summary>
+            Malayalam.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Maltese">
+            <summary>
+            Maltese.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Marathi">
+            <summary>
+            Marathi.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Mongolian">
+            <summary>
+            Mongolian.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Nepali">
+            <summary>
+            Nepali.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Norwegian">
+            <summary>
+            Norwegian.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Oriya">
+            <summary>
+            Oriya.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Pashto">
+            <summary>
+            Pashto.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Persian">
+            <summary>
+            Persian.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Polish">
+            <summary>
+            Polish.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Portuguese">
+            <summary>
+            Portuguese.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Punjabi">
+            <summary>
+            Punjabi.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Romanian">
+            <summary>
+            Romanian.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Russian">
+            <summary>
+            Russian.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Sanskrit">
+            <summary>
+            Sanskrit.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Serbian">
+            <summary>
+            Serbian.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Sindhi">
+            <summary>
+            Sindhi.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Sinhalese">
+            <summary>
+            Sinhalese.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Slovak">
+            <summary>
+            Slovak.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Slovenian">
+            <summary>
+            Slovenian.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Spanish">
+            <summary>
+            Spanish.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Swahili">
+            <summary>
+            Swahili.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Swedish">
+            <summary>
+            Swedish.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Tajik">
+            <summary>
+            Tajik.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Tamil">
+            <summary>
+            Tamil.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Tagalog">
+            <summary>
+            Tagalog.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Telugu">
+            <summary>
+            Telugu.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Thai">
+            <summary>
+            Thai.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Tibetan">
+            <summary>
+            Tibetan.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Turkish">
+            <summary>
+            Turkish.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Ukrainian">
+            <summary>
+            Ukrainian.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Urdu">
+            <summary>
+            Urdu.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Uzbek">
+            <summary>
+            Uzbek.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Uighur">
+            <summary>
+            Uighur.
+            </summary>
+        </member>
+        <member name="F:Google.API.Language.Vietnamese">
+            <summary>
+            Vietnamese.
+            </summary>
+        </member>
+        <member name="T:Google.API.HttpUtility">
+            <summary>
+            Provides methods for encoding and decoding URLs when processing Web requests. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:Google.API.HttpUtility.HtmlDecode(System.String)">
+            <summary>
+            Converts a string that has been HTML-encoded for HTTP transmission into a decoded string.
+            </summary>
+            <param name="s">The string to decode.</param>
+            <returns>A decoded string.</returns>
+        </member>
+        <member name="M:Google.API.HttpUtility.RemoveHtmlTags(System.String)">
+            <summary>
+            Capture the text content from a html formatted string.
+            </summary>
+            <param name="s">The html formatted string.</param>
+            <returns>The plane text.</returns>
+        </member>
+        <member name="T:Google.API.Search.IWebResult">
+            <summary>
+            Web search result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IWebResult.Url">
+            <summary>
+            Gets the url.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IWebResult.VisibleUrl">
+            <summary>
+            Gets a shortened version of the URL associated with the result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IWebResult.CacheUrl">
+            <summary>
+            Gets a url to google's cached version of the page responsible for producting this result. This property may be null indicating that there is no cache, and it might be out of date in cases where the search result has been saved and in the mean time, the cache has gone stale. For best results, this property should not be persisted.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IWebResult.Title">
+            <summary>
+            Gets the title.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IWebResult.Content">
+            <summary>
+            Gets a brief snippet of information from the page associated with the search result.
+            </summary>
+        </member>
+        <member name="T:Google.API.Search.IPhoneNumber">
+            <summary>
+            A phone number.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IPhoneNumber.Type">
+            <summary>
+            Gets the of this phone number. It can be one of "main", "fax", "mobile", "data", or "".
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IPhoneNumber.Number">
+            <summary>
+            Gets the phone number.
+            </summary>
+        </member>
+        <member name="T:Google.API.Search.GpatentSearchClient">
+            <summary>
+            The client for patent search.
+            </summary>
+        </member>
+        <member name="M:Google.API.Search.GpatentSearchClient.Search(System.String,System.Int32)">
+            <summary>
+            Search patents.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <returns>The result items.</returns>
+            <remarks>
+            Now, the max count of items Google given is <b>32</b>.
+            </remarks>
+        </member>
+        <member name="M:Google.API.Search.GpatentSearchClient.Search(System.String,System.Int32,Google.API.Search.SortType)">
+            <summary>
+            Search patents.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="sortBy">The way to order results.</param>
+            <returns>The result items.</returns>
+            <remarks>
+            Now, the max count of items Google given is <b>32</b>.
+            </remarks>
+        </member>
+        <member name="M:Google.API.Search.GpatentSearchClient.Search(System.String,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Search patents.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="issuedOnly">Whether restrict the search to ONLY patents that having been issued, skiping all patents that have only been filed.</param>
+            <param name="filedOnly">Whether restrict the search to ONLY patents that only been filed, skipping over all patents that have been issued.</param>
+            <returns>The result items.</returns>
+            <remarks>
+            When both issuedOnly and filedOnly are true, it equals to both are false.
+            Now, the max count of items Google given is <b>32</b>.
+            </remarks>
+        </member>
+        <member name="M:Google.API.Search.GpatentSearchClient.Search(System.String,System.Int32,System.Boolean,System.Boolean,Google.API.Search.SortType)">
+            <summary>
+            Search patents.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="issuedOnly">Whether restrict the search to ONLY patents that having been issued, skiping all patents that have only been filed.</param>
+            <param name="filedOnly">Whether restrict the search to ONLY patents that only been filed, skipping over all patents that have been issued.</param>
+            <param name="sortBy">The way to order results.</param>
+            <returns>The result items.</returns>
+            <remarks>
+            When both issuedOnly and filedOnly are true, it equals to both are false.
+            Now, the max count of items Google given is <b>32</b>.
+            </remarks>
+        </member>
+        <member name="T:Google.API.Search.GbookSearchClient">
+            <summary>
+            The client for book search.
+            </summary>
+        </member>
+        <member name="M:Google.API.Search.GbookSearchClient.Search(System.String,System.Int32)">
+            <summary>
+            Search books.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="M:Google.API.Search.GbookSearchClient.Search(System.String,System.Int32,System.Boolean)">
+            <summary>
+            Search books.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="fullViewOnly">Whether to restrict the search to "full view" books.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="M:Google.API.Search.GbookSearchClient.Search(System.String,System.Int32,System.Boolean,System.String)">
+            <summary>
+            Search books.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="fullViewOnly">Whether to restrict the search to "full view" books.</param>
+            <param name="library">The specified user-defined library. If it not null, the search will restrict the search to this library.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="T:Google.API.Search.INewsResultItem">
+            <summary>
+            A story of news search result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.INewsResultItem.Url">
+            <summary>
+            Gets the url.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.INewsResultItem.Title">
+            <summary>
+            Gets the title.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.INewsResultItem.Publisher">
+            <summary>
+            Gets the name of the publisher of the news story.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.INewsResultItem.Location">
+            <summary>
+            Gets the location of the news story. This is a list of locations in most specific to least specific order where the components are seperated by ",". Note, there may only be one element in the list... A typical value for this property is "Edinburgh,Scotland,UK" or possibly "USA".
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.INewsResultItem.PublishedDate">
+            <summary>
+            Gets the published date of the news story referenced by this search result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.INewsResultItem.Language">
+            <summary>
+            Gets the language of the news story.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GnewsResultItem.Title">
+            <summary>
+            Supplies the title value of the result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GnewsResultItem.TitleNoFormatting">
+            <summary>
+            Supplies the title, but unlike .title, this property is stripped of html markup (e.g., &lt;b&gt;, &lt;i&gt;, etc.)
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GnewsResultItem.UnescapedUrl">
+            <summary>
+            Supplies the raw URL of the result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GnewsResultItem.Url">
+            <summary>
+            Supplies an escaped version of the above URL.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GnewsResultItem.Publisher">
+            <summary>
+            Supplies the name of the publisher of the news story.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GnewsResultItem.Location">
+            <summary>
+            Contains the location of the news story. This is a list of locations in most specific to least specific order where the components are seperated by ",". Note, there may only be one element in the list... A typical value for this property is "Edinburgh,Scotland,UK" or possibly "USA".
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GnewsResultItem.PublishedDateString">
+            <summary>
+            Supplies the published date (rfc-822 format) of the news story referenced by this search result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GnewsResultItem.Language">
+            <summary>
+            This property is optional. When present, it indicates the language of the news story.
+            </summary>
+        </member>
+        <member name="T:Google.API.Search.INewsResult">
+            <summary>
+            News search result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.INewsResult.ClusterUrl">
+            <summary>
+            Gets the URL points to a landing page that points to all of the related stories. When a news result has a set of related stories, this URL is available and non-null. Otherwise, it is null.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.INewsResult.Content">
+            <summary>
+            Gets a snippet of content from the news story associated with this search result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.INewsResult.RelatedStories">
+            <summary>
+            Gets a set of closely related stories. If there is no related story it will return null.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.INewsResult.Image">
+            <summary>
+            Gets a image that represents the cluster of news articles related to this result. If there is no good image for this result it will return null.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.INewsResult.Author">
+            <summary>
+            Gets the name of the person that the quote is attributed to. Note, you can get the author only when this is a quote. 
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.INewsResult.IsQuote">
+            <summary>
+            Gets whether it is a quote or a normal news.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GnewsResult.GSearchResultClass">
+            <summary>
+            Indicates the "type" of result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GnewsResult.ClusterUrl">
+            <summary>
+            When a news result has a set of related stories, this URL is available and non-null. In this situation, the URL points to a landing page that points to all of the related stories.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GnewsResult.Content">
+            <summary>
+            Supplies a snippet of content from the news story associated with this search result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GnewsResult.RelatedStories">
+            <summary>
+            This property is optional. It only appears in a result when the story also has a set of closely related stories. In this case, the relatedStories[] array will be present.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GnewsResult.Image">
+            <summary>
+            This property is optional. It only appears in a result when the system has determined that there is a good image that represents the cluster of news articles related to this result.
+            </summary>
+        </member>
+        <member name="T:Google.API.Search.SafeLevel">
+            <summary>
+            The search safety level.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.SafeLevel.off">
+            <summary>
+            Disables safe search filtering.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.SafeLevel.moderate">
+            <summary>
+            Enables moderate safe search filtering. Default value.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.SafeLevel.active">
+            <summary>
+            Enables the highest level of safe search filtering.
+            </summary>
+        </member>
+        <member name="T:Google.API.Search.SortType">
+            <summary>
+            Sort type enum.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.SortType.relevance">
+            <summary>
+            Sort by relevance. Default value.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.SortType.date">
+            <summary>
+            Sort by date.
+            </summary>
+        </member>
+        <member name="T:Google.API.Search.ImageSize">
+            <summary>
+            The image size.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.ImageSize.all">
+            <summary>
+            All sizes. Default value.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.ImageSize.icon">
+            <summary>
+            Icon size.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.ImageSize.small">
+            <summary>
+            Small size.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.ImageSize.medium">
+            <summary>
+            Medium size.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.ImageSize.large">
+            <summary>
+            Large size.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.ImageSize.xlarge">
+            <summary>
+            Large plus size.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.ImageSize.xxlarge">
+            <summary>
+            Large plus plus size.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.ImageSize.huge">
+            <summary>
+            Huge size.
+            </summary>
+        </member>
+        <member name="T:Google.API.Search.Colorization">
+            <summary>
+            A specified colorization of images.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.Colorization.all">
+            <summary>
+            All colorizations. Default value.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.Colorization.mono">
+            <summary>
+            The black and white images.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.Colorization.gray">
+            <summary>
+            The grayscale images.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.Colorization.color">
+            <summary>
+            The color images.
+            </summary>
+        </member>
+        <member name="T:Google.API.Search.ImageType">
+            <summary>
+            The special type of image.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.ImageType.all">
+            <summary>
+            All types. Default value.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.ImageType.face">
+            <summary>
+            Images of faces.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.ImageType.photo">
+            <summary>
+            Photos.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.ImageType.clipart">
+            <summary>
+            Clipart images.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.ImageType.lineart">
+            <summary>
+            Images of line drawings.
+            </summary>
+        </member>
+        <member name="T:Google.API.Search.FileType">
+            <summary>
+            The specified file type of image.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.FileType.all">
+            <summary>
+            All types. Default value.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.FileType.jpg">
+            <summary>
+            The jpg images.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.FileType.png">
+            <summary>
+            The png images.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.FileType.gif">
+            <summary>
+            The gif images.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.FileType.bmp">
+            <summary>
+            The bmp images.
+            </summary>
+        </member>
+        <member name="T:Google.API.Search.LocalResultType">
+            <summary>
+            The result type of GlocalSearch.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.LocalResultType.blended">
+            <summary>
+            Request KML, Local Business Listings, and Geocode results.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.LocalResultType.kmlonly">
+            <summary>
+            Request KML and Geocode results.
+            </summary>
+        </member>
+        <member name="F:Google.API.Search.LocalResultType.localonly">
+            <summary>
+            Request Local Business Listings and Geocode results.
+            </summary>
+        </member>
+        <member name="T:Google.API.Search.IPatentResult">
+            <summary>
+            Patent search result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IPatentResult.Title">
+            <summary>
+            Gets the title of the result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IPatentResult.Content">
+            <summary>
+            Gets a snippet style description of the patent.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IPatentResult.Url">
+            <summary>
+            Gets the URL of the result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IPatentResult.ApplicationDate">
+            <summary>
+            Gets the application filing date of the patent.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IPatentResult.PatentNumber">
+            <summary>
+            Gets the patent number for issued patents, and the application number for filed, but not yet issued patents.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IPatentResult.PatentStatus">
+            <summary>
+            Gets the status of the patent which can either be "filed" for filed, but not yet issued patents, or "issued" for issued patents.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IPatentResult.Assignee">
+            <summary>
+            Gets the assignee of the patent.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IPatentResult.TbImage">
+            <summary>
+            Gets a thumbnail image which visually represents the patent.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GpatentResult.GSearchResultClass">
+            <summary>
+            Indicates the "type" of result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GpatentResult.Title">
+            <summary>
+            Supplies the title value of the result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GpatentResult.TitleNoFormatting">
+            <summary>
+            Supplies the title, but unlike .title, this property is stripped of html markup (e.g., &lt;b&gt;, &lt;i&gt;, etc.)
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GpatentResult.Content">
+            <summary>
+            Supplies a snippet style description of the patent.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GpatentResult.UnescapedUrl">
+            <summary>
+            Supplies the raw URL of the result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GpatentResult.Url">
+            <summary>
+            Supplies an escaped version of the above URL.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GpatentResult.ApplicationDateString">
+            <summary>
+            Supplies the application filing date of the patent (rfc-822 format).
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GpatentResult.PatentNumber">
+            <summary>
+            Supplies the patent number for issued patents, and the application number for filed, but not yet issued patents.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GpatentResult.PatentStatus">
+            <summary>
+            Supplies the status of the patent which can either be "filed" for filed, but not yet issued patents, or "issued" for issued patents.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GpatentResult.Assignee">
+            <summary>
+            Supplies the assignee of the patent.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GpatentResult.TbUrl">
+            <summary>
+            Supplies the url of a thumbnail image which visually represents the patent.
+            </summary>
+        </member>
+        <member name="T:Google.API.Search.IBookResult">
+            <summary>
+            Book search result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IBookResult.Title">
+            <summary>
+            Gets the title of the book.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IBookResult.Url">
+            <summary>
+            Gets the URL of the result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IBookResult.Authors">
+            <summary>
+            Gets the list of authors of the book.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IBookResult.BookId">
+            <summary>
+            Gets the identifier associated with the book. This is typically an ISBN.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IBookResult.PublishedYear">
+            <summary>
+            Gets the year that the book was published.
+            </summary>
+            <remarks>
+            If the published year is unknown, it will return -1.
+            </remarks>
+        </member>
+        <member name="P:Google.API.Search.IBookResult.PageCount">
+            <summary>
+            Gets the number of pages contained within the book.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IBookResult.TbImage">
+            <summary>
+            Gets a thumbnail image of the books cover.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GbookResult.GSearchResultClass">
+            <summary>
+            Indicates the "type" of result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GbookResult.Title">
+            <summary>
+            Supplies the title of the book.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GbookResult.TitleNoFormatting">
+            <summary>
+            Supplies the title, but unlike .title, this property is stripped of html markup (e.g., &lt;b&gt;, &lt;i&gt;, etc.)
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GbookResult.UnescapedUrl">
+            <summary>
+            Supplies the raw URL of the result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GbookResult.Url">
+            <summary>
+            Supplies an escaped version of the above URL.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GbookResult.Authors">
+            <summary>
+            Supplies the list of authors of the book.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GbookResult.BookId">
+            <summary>
+            Supplies the identifier associated with the book. This is typically an ISBN.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GbookResult.PublishedYearString">
+            <summary>
+            Supplies the year that the book was published.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GbookResult.PageCount">
+            <summary>
+            Supplies the number of pages contained within the book.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GbookResult.TbWidth">
+            <summary>
+            Supplies the width in pixels of the book cover thumbnail.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GbookResult.TbHeight">
+            <summary>
+            Supplies the height in pixels of the book cover thumbnail.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GbookResult.TbUrl">
+            <summary>
+            Supplies the url of a thumbnail image which visually represents book cover.
+            </summary>
+        </member>
+        <member name="T:Google.API.Search.IBlogResult">
+            <summary>
+            Blog search result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IBlogResult.Title">
+            <summary>
+            Gets the title.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IBlogResult.PostUrl">
+            <summary>
+            Gets the URL to the blog post referenced in this search result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IBlogResult.Content">
+            <summary>
+            Gets a snippet of content from the blog post associated with this search result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IBlogResult.Author">
+            <summary>
+            Gets the name of the author that wrote the blog post.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IBlogResult.BlogUrl">
+            <summary>
+            Gets the URL of the blog which contains the post. 
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IBlogResult.PublishedDate">
+            <summary>
+            Gets the published date of the blog post referenced by this search result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GblogResult.GSearchResultClass">
+            <summary>
+            Indicates the "type" of result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GblogResult.Title">
+            <summary>
+            Supplies the title value of the result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GblogResult.TitleNoFormatting">
+            <summary>
+            Supplies the title, but unlike .title, this property is stripped of html markup (e.g., &lt;b&gt;, &lt;i&gt;, etc.)
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GblogResult.PostUrl">
+            <summary>
+            Supplies the URL to the blog post referenced in this search result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GblogResult.Content">
+            <summary>
+            Supplies a snippet of content from the blog post associated with this search result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GblogResult.Author">
+            <summary>
+            Supplies the name of the author that wrote the blog post.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GblogResult.BlogUrl">
+            <summary>
+            Supplies the URL of the blog which contains the post. Typically, this URL is displayed in green, beneath the blog search result and is linked to the blog.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GblogResult.PublishedDateString">
+            <summary>
+            Supplies the published date (rfc-822 format) of the blog post referenced by this search result.
+            </summary>
+        </member>
+        <member name="T:Google.API.Search.GnewsSearcher">
+            <summary>
+            Utility class for Google News Search service.
+            </summary>
+        </member>
+        <member name="M:Google.API.Search.GnewsSearcher.Search(System.String,System.Int32)">
+            <summary>
+            Search news.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;INewsResult&gt; results = GnewsSearcher.Search("Olympic", 16);
+            foreach(INewsResult result in results)
+            {
+                Console.WriteLine("[{0}, {1} - {2:d}]{3}", result.Publisher, result.Location, result.PublishedDate, result.Title);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Google.API.Search.GnewsSearcher.Search(System.String,System.Int32,Google.API.Search.SortType)">
+            <summary>
+            Search news.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="sortBy">The way to order results.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;INewsResult&gt; results = GnewsSearcher.Search("Olympic", 16, SortType.date);
+            foreach(INewsResult result in results)
+            {
+                Console.WriteLine("[{0}, {1} - {2:d}]{3}", result.Publisher, result.Location, result.PublishedDate, result.Title);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Google.API.Search.GnewsSearcher.Search(System.String,System.Int32,System.String)">
+            <summary>
+            Search news.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="geo">A particular location of the news. You must supply either a city, state, country, or zip code as in "Santa Barbara" or "British Columbia" or "Peru" or "93108".</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;INewsResult&gt; results = GnewsSearcher.Search("Olympic", 16, "Beijing China");
+            foreach(INewsResult result in results)
+            {
+                Console.WriteLine("[{0}, {1} - {2:d}]{3}", result.Publisher, result.Location, result.PublishedDate, result.Title);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Google.API.Search.GnewsSearcher.Search(System.String,System.Int32,System.String,Google.API.Search.SortType)">
+            <summary>
+            Search news.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="geo">A particular location of the news. You must supply either a city, state, country, or zip code as in "Santa Barbara" or "British Columbia" or "Peru" or "93108".</param>
+            <param name="sortBy">The way to order results.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;INewsResult&gt; results = GnewsSearcher.Search("Olympic", 16, "Beijing China", SortType.date);
+            foreach(INewsResult result in results)
+            {
+                Console.WriteLine("[{0}, {1} - {2:d}]{3}", result.Publisher, result.Location, result.PublishedDate, result.Title);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Google.API.Search.GnewsSearcher.SearchLocal(System.String,System.Int32)">
+            <summary>
+            Search the latest local news.
+            </summary>
+            <param name="geo">A particular location of the news. You must supply either a city, state, country, or zip code as in "Santa Barbara" or "British Columbia" or "Peru" or "93108".</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;INewsResult&gt; results = GnewsSearcher.SearchLocal("Tokyo", 16);
+            foreach(INewsResult result in results)
+            {
+                Console.WriteLine("[{0}, {1} - {2:d}]{3}", result.Publisher, result.Location, result.PublishedDate, result.Title);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Google.API.Search.GnewsSearcher.SearchLocal(System.String,System.Int32,Google.API.Search.SortType)">
+            <summary>
+            Search the latest local news.
+            </summary>
+            <param name="geo">A particular location of the news. You must supply either a city, state, country, or zip code as in "Santa Barbara" or "British Columbia" or "Peru" or "93108".</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="sortBy">The way to order results.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;INewsResult&gt; results = GnewsSearcher.Search("Tokyo", 16, SortType.date);
+            foreach(INewsResult result in results)
+            {
+                Console.WriteLine("[{0}, {1} - {2:d}]{3}", result.Publisher, result.Location, result.PublishedDate, result.Title);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="P:Google.API.Search.PhoneNumber.Type">
+            <summary>
+            The value of the .type property can me one of "main", "fax", "mobile", "data", or "". 
+            </summary>
+        </member>
+        <member name="T:Google.API.Search.IVideoResult">
+            <summary>
+            Video search result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IVideoResult.Title">
+            <summary>
+            Gets the title of the video result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IVideoResult.Content">
+            <summary>
+            Gets a snippet style description of the video clip.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IVideoResult.Url">
+            <summary>
+            Gets the url of a playable version of the video result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IVideoResult.PublishedDate">
+            <summary>
+            Gets the published date of the video.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IVideoResult.Publisher">
+            <summary>
+            Gets the name of the video's publisher.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IVideoResult.Duration">
+            <summary>
+            Gets the approximate duration, in seconds, of the video.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IVideoResult.TbImage">
+            <summary>
+            Gets a thumbnail image which visually represents the video.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IVideoResult.PlayUrl">
+            <summary>
+            Gets the url of the flash version of the video that can be played inline on your page.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IVideoResult.VideoType">
+            <summary>
+            Gets the video type of the video result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IVideoResult.Author">
+            <summary>
+            Gets the author. If present, this property supplies the YouTube user name of the author of the video.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IVideoResult.ViewCount">
+            <summary>
+            Gets the view count. If present, this property supplies a count of the number of plays for this video. 
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IVideoResult.Rating">
+            <summary>
+            Gets the rating. If present, this property supplies the rating of the video on a scale of 1 to 5. 
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GvideoResult.GSearchResultClass">
+            <summary>
+            Indicates the "type" of result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GvideoResult.Title">
+            <summary>
+            Supplies the title of the video result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GvideoResult.TitleNoFormatting">
+            <summary>
+            Supplies the title, but unlike .title, this property is stripped of html markup (e.g., &lt;b&gt;, &lt;i&gt;, etc.) 
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GvideoResult.Content">
+            <summary>
+            Supplies a snippet style description of the video clip.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GvideoResult.Url">
+            <summary>
+            Supplies the url of a playable version of the video result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GvideoResult.PublishedDateString">
+            <summary>
+            Supplies the published date of the video (rfc-822 format).
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GvideoResult.Publisher">
+            <summary>
+            Supplies the name of the video's publisher, typically displayed in green below the video thumbnail, similar to the treatment used for visibleUrl in the other search result objects.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GvideoResult.Duration">
+            <summary>
+            The approximate duration, in seconds, of the video.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GvideoResult.TbWidth">
+            <summary>
+            Supplies the width in pixels of the video thumbnail.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GvideoResult.TbHeight">
+            <summary>
+            Supplies the height in pixels of the video thumbnail.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GvideoResult.TbUrl">
+            <summary>
+            Supplies the url of a thumbnail image which visually represents the video.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Google.API.Search.GvideoResult.PlayUrl" -->
+        <member name="P:Google.API.Search.GvideoResult.Author">
+            <summary>
+            If present, this property supplies the YouTube user name of the author of the video.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GvideoResult.ViewCount">
+            <summary>
+            If present, this property supplies a count of the number of plays for this video.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GvideoResult.Rating">
+            <summary>
+            If present, this property supplies the rating of the video on a scale of 1 to 5.
+            </summary>
+        </member>
+        <member name="T:Google.API.Search.GlocalSearcher">
+            <summary>
+            Utility class for Google Local Search service.
+            </summary>
+        </member>
+        <member name="M:Google.API.Search.GlocalSearcher.Search(System.String,System.Int32,System.Single,System.Single)">
+            <summary>
+            Search local infos.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="latitude">The latitude value of local.</param>
+            <param name="longitude">The longitude value of local.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;ILocalResult&gt; results = GlocalSearcher.Search("white house", 4, -77.036667f, 38.895000f);
+            foreach(ILocalResult result in results)
+            {
+                Console.WriteLine("{0} at {1}, {2}", result.Title, result.StreetAddress, result.Region);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Google.API.Search.GlocalSearcher.Search(System.String,System.Int32,System.Single,System.Single,Google.API.Search.LocalResultType)">
+            <summary>
+            Search local infos.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="latitude">The latitude value of local.</param>
+            <param name="longitude">The longitude value of local.</param>
+            <param name="resultType">The type of local search results.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;ILocalResult&gt; results = GlocalSearcher.Search("white house", 4, -77.036667f, 38.895000f, LocalResultType.localonly);
+            foreach(ILocalResult result in results)
+            {
+                Console.WriteLine("{0} at {1}, {2}", result.Title, result.StreetAddress, result.Region);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Google.API.Search.GlocalSearcher.Search(System.String,System.Int32,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Search local infos.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="latitude">The latitude value of local.</param>
+            <param name="longitude">The longitude value of local.</param>
+            <param name="width">The width value of search bouding.</param>
+            <param name="height">The height value of search bounding.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;ILocalResult&gt; results = GlocalSearcher.Search("white house", 4, -77.036667f, 38.895000f, 1.0f, 0.5f);
+            foreach(ILocalResult result in results)
+            {
+                Console.WriteLine("{0} at {1}, {2}", result.Title, result.StreetAddress, result.Region);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Google.API.Search.GlocalSearcher.Search(System.String,System.Int32,System.Single,System.Single,System.Single,System.Single,Google.API.Search.LocalResultType)">
+            <summary>
+            Search local infos.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="latitude">The latitude value of local.</param>
+            <param name="longitude">The longitude value of local.</param>
+            <param name="width">The width value of search bouding.</param>
+            <param name="height">The height value of search bounding.</param>
+            <param name="resultType">The type of local search results.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;ILocalResult&gt; results = GlocalSearcher.Search("white house", 4, -77.036667f, 38.895000f, 1.0f, 0.5f, LocalResultType.blended);
+            foreach(ILocalResult result in results)
+            {
+                Console.WriteLine("{0} at {1}, {2}", result.Title, result.StreetAddress, result.Region);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="P:Google.API.Search.GwebResult.GSearchResultClass">
+            <summary>
+            Indicates the "type" of result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GwebResult.UnescapedUrl">
+            <summary>
+            Supplies the raw URL of the result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GwebResult.Url">
+            <summary>
+            Supplies an escaped version of the above URL.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GwebResult.VisibleUrl">
+            <summary>
+            Supplies a shortened version of the URL associated with the result. Typically displayed in green, stripped of a protocol and path.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GwebResult.CacheUrl">
+            <summary>
+            Supplies a url to google's cached version of the page responsible for producting this result. This property may be null indicating that there is no cache, and it might be out of date in cases where the search result has been saved and in the mean time, the cache has gone stale. For best results, this property should not be persisted.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GwebResult.Title">
+            <summary>
+            Supplies the title value of the result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GwebResult.TitleNoFormatting">
+            <summary>
+            Supplies the title, but unlike .title, this property is stripped of html markup (e.g., &lt;b&gt;, &lt;i&gt;, etc.)
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GwebResult.Content">
+            <summary>
+            Supplies a brief snippet of information from the page associated with the search result.
+            </summary>
+        </member>
+        <member name="T:Google.API.Search.GpatentSearcher">
+            <summary>
+            Utility class for Google Patent Search service.
+            </summary>
+        </member>
+        <member name="M:Google.API.Search.GpatentSearcher.Search(System.String,System.Int32)">
+            <summary>
+            Search patents.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <returns>The result items.</returns>
+            <remarks>
+            Now, the max count of items Google given is <b>32</b>.
+            </remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;IPatentResult&gt; results = GpatentSearcher.Search("auto", 10);
+            foreach(IPatentResult result in results)
+            {
+                Console.WriteLine("[{0} - US Pat. {1} - filed {2:d} - {3}] {4}", result.Title, result.PatentNumber, result.ApplicationDate, result.Assignee, result.Content);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Google.API.Search.GpatentSearcher.Search(System.String,System.Int32,Google.API.Search.SortType)">
+            <summary>
+            Search patents.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="sortBy">The way to order results.</param>
+            <returns>The result items.</returns>
+            <remarks>
+            Now, the max count of items Google given is <b>32</b>.
+            </remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;IPatentResult&gt; results = GpatentSearcher.Search("encode", 32, SortType.relevance);
+            foreach(IPatentResult result in results)
+            {
+                Console.WriteLine("[{0} - US Pat. {1} - filed {2:d} - {3}] {4}", result.Title, result.PatentNumber, result.ApplicationDate, result.Assignee, result.Content);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Google.API.Search.GpatentSearcher.Search(System.String,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Search patents.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="issuedOnly">Whether restrict the search to ONLY patents that having been issued, skiping all patents that have only been filed.</param>
+            <param name="filedOnly">Whether restrict the search to ONLY patents that only been filed, skipping over all patents that have been issued.</param>
+            <returns>The result items.</returns>
+            <remarks>
+            When both issuedOnly and filedOnly are true, it equals to both are false.
+            Now, the max count of items Google given is <b>32</b>.
+            </remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;IPatentResult&gt; results = GpatentSearcher.Search("Wifi", 20, true, false);
+            foreach(IPatentResult result in results)
+            {
+                Console.WriteLine("[{0} - US Pat. {1} - filed {2:d} - {3}] {4}", result.Title, result.PatentNumber, result.ApplicationDate, result.Assignee, result.Content);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Google.API.Search.GpatentSearcher.Search(System.String,System.Int32,System.Boolean,System.Boolean,Google.API.Search.SortType)">
+            <summary>
+            Search patents.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="issuedOnly">Whether restrict the search to ONLY patents that having been issued, skiping all patents that have only been filed.</param>
+            <param name="filedOnly">Whether restrict the search to ONLY patents that only been filed, skipping over all patents that have been issued.</param>
+            <param name="sortBy">The way to order results.</param>
+            <returns>The result items.</returns>
+            <remarks>
+            When both issuedOnly and filedOnly are true, it equals to both are false.
+            Now, the max count of items Google given is <b>32</b>.
+            </remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;IPatentResult&gt; results = GpatentSearcher.Search("search engine", 30, true, false, SortType.date);
+            foreach(IPatentResult result in results)
+            {
+                Console.WriteLine("[{0} - US Pat. {1} - filed {2:d} - {3}] {4}", result.Title, result.PatentNumber, result.ApplicationDate, result.Assignee, result.Content);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="T:Google.API.Search.GlocalSearchClient">
+            <summary>
+            The client for local search.
+            </summary>
+        </member>
+        <member name="M:Google.API.Search.GlocalSearchClient.Search(System.String,System.Int32,System.Single,System.Single)">
+            <summary>
+            Search local infos.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="latitude">The latitude value of local.</param>
+            <param name="longitude">The longitude value of local.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="M:Google.API.Search.GlocalSearchClient.Search(System.String,System.Int32,System.Single,System.Single,Google.API.Search.LocalResultType)">
+            <summary>
+            Search local infos.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="latitude">The latitude value of local.</param>
+            <param name="longitude">The longitude value of local.</param>
+            <param name="resultType">The type of local search results.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="M:Google.API.Search.GlocalSearchClient.Search(System.String,System.Int32,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Search local infos.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="latitude">The latitude value of local.</param>
+            <param name="longitude">The longitude value of local.</param>
+            <param name="width">The width value of search bouding.</param>
+            <param name="height">The height value of search bounding.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="M:Google.API.Search.GlocalSearchClient.Search(System.String,System.Int32,System.Single,System.Single,System.Single,System.Single,Google.API.Search.LocalResultType)">
+            <summary>
+            Search local infos.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="latitude">The latitude value of local.</param>
+            <param name="longitude">The longitude value of local.</param>
+            <param name="width">The width value of search bouding.</param>
+            <param name="height">The height value of search bounding.</param>
+            <param name="resultType">The type of local search results.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="T:Google.API.Search.LanguageUtility">
+            <summary>
+            Utility class for language and language codes.
+            </summary>
+        </member>
+        <member name="M:Google.API.Search.LanguageUtility.IsSupported(Google.API.Language)">
+            <summary>
+            Whether this language is supported.
+            </summary>
+            <param name="language">The language.</param>
+            <returns>Return true if the language is supported.</returns>
+        </member>
+        <member name="M:Google.API.Search.LanguageUtility.GetLanguageCode(Google.API.Language)">
+            <summary>
+            Get the language code of a language.
+            </summary>
+            <param name="language">The language</param>
+            <returns>The language code of this language or null for unsupported language.</returns>
+        </member>
+        <member name="P:Google.API.Search.LanguageUtility.LanguageCollection">
+            <summary>
+            Gets supported language collection.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.LanguageUtility.LanguageCodeDict">
+            <summary>
+            Gets language code dictionary.
+            </summary>
+        </member>
+        <member name="T:Google.API.Search.GimageSearchClient">
+            <summary>
+            The client for image search.
+            </summary>
+        </member>
+        <member name="M:Google.API.Search.GimageSearchClient.Search(System.String,System.Int32)">
+            <summary>
+            Search images.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <returns>The result itmes.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="M:Google.API.Search.GimageSearchClient.Search(System.String,System.Int32,System.String)">
+            <summary>
+            Search images.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="site">The specified domain. It will restrict the search to images within this domain.e.g., <c>photobucket.com</c>.</param>
+            <returns>The result itmes.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="M:Google.API.Search.GimageSearchClient.Search(System.String,System.Int32,Google.API.Search.ImageSize,Google.API.Search.Colorization,Google.API.Search.ImageType,Google.API.Search.FileType)">
+            <summary>
+            Search images.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="imageSize">The size of image.</param>
+            <param name="colorization">The specified colorization of image.</param>
+            <param name="imageType">The special type of image.</param>
+            <param name="fileType">The specified file type of image.</param>
+            <returns>The result itmes.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="M:Google.API.Search.GimageSearchClient.Search(System.String,System.Int32,Google.API.Search.ImageSize,Google.API.Search.Colorization,Google.API.Search.ImageType,Google.API.Search.FileType,System.String)">
+            <summary>
+            Search images.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="imageSize">The size of image.</param>
+            <param name="colorization">The specified colorization of image.</param>
+            <param name="imageType">The special type of image.</param>
+            <param name="fileType">The specified file type of image.</param>
+            <param name="site">The specified domain. It will restrict the search to images within this domain.e.g., <c>photobucket.com</c>.</param>
+            <returns>The result itmes.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="M:Google.API.Search.GimageSearchClient.Search(System.String,System.Int32,Google.API.Search.SafeLevel,Google.API.Search.ImageSize,Google.API.Search.Colorization,Google.API.Search.ImageType,Google.API.Search.FileType,System.String)">
+            <summary>
+            Search images.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="safeLevel">The search safety level.</param>
+            <param name="imageSize">The size of image.</param>
+            <param name="colorization">The specified colorization of image.</param>
+            <param name="imageType">The special type of image.</param>
+            <param name="fileType">The specified file type of image.</param>
+            <param name="site">The specified domain. It will restrict the search to images within this domain.e.g., <c>photobucket.com</c>.</param>
+            <returns>The result itmes.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="M:Google.API.Search.GimageSearchClient.Search(System.String,System.Int32,Google.API.Search.SafeLevel,Google.API.Search.ImageSize,Google.API.Search.Colorization,Google.API.Search.ImageColor,Google.API.Search.ImageType,Google.API.Search.FileType,System.String)">
+            <summary>
+            Search images.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="safeLevel">The search safety level.</param>
+            <param name="imageSize">The size of image.</param>
+            <param name="colorization">The specified colorization of image.</param>
+            <param name="color">The specified color of image.</param>
+            <param name="imageType">The special type of image.</param>
+            <param name="fileType">The specified file type of image.</param>
+            <param name="site">The specified domain. It will restrict the search to images within this domain.e.g., <c>photobucket.com</c>.</param>
+            <returns>The result itmes.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="T:Google.API.Search.IImageResult">
+            <summary>
+            Image search result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IImageResult.ImageId">
+            <summary>
+            Gets a hashcode of the image.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IImageResult.Title">
+            <summary>
+            Gets the title of the image.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IImageResult.Url">
+            <summary>
+            Gets the the URL of the result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IImageResult.VisibleUrl">
+            <summary>
+            Gets a shortened version of the URL associated with the result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IImageResult.OriginalContextUrl">
+            <summary>
+            Gets the URL of the page containing the image.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IImageResult.Width">
+            <summary>
+            Gets the width of the image in pixels.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IImageResult.Height">
+            <summary>
+            Gets the height of the image in pixels.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IImageResult.TbImage">
+            <summary>
+            Gets a thumbnail image.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.IImageResult.Content">
+            <summary>
+            Gets a brief snippet of information from the page associated with the search result.
+            </summary>
+        </member>
+        <member name="T:Google.API.Search.GimageSearcher">
+            <summary>
+            Utility class for Google Image Search service.
+            </summary>
+        </member>
+        <member name="M:Google.API.Search.GimageSearcher.Search(System.String,System.Int32)">
+            <summary>
+            Search images.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <returns>The result itmes.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;IImageResult&gt; results = GimageSearcher.Search("bra", 6);
+            foreach(IImageResult result in results)
+            {
+                return string.Format("{0}" + Environment.NewLine + "{1} x {2} - {3}" + Environment.NewLine + "{4}",
+                                     result.Content,
+                                     result.Width,
+                                     result.Height,
+                                     result.Title,
+                                     result.VisibleUrl);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Google.API.Search.GimageSearcher.Search(System.String,System.Int32,System.String)">
+            <summary>
+            Search images.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="site">The specified domain. It will restrict the search to images within this domain.e.g., <c>photobucket.com</c>.</param>
+            <returns>The result itmes.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;IImageResult&gt; results = GimageSearcher.Search("iPhone", 6, "yahoo.com");
+            foreach(IImageResult result in results)
+            {
+                return string.Format("{0}" + Environment.NewLine + "{1} x {2} - {3}" + Environment.NewLine + "{4}",
+                                     result.Content,
+                                     result.Width,
+                                     result.Height,
+                                     result.Title,
+                                     result.VisibleUrl);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Google.API.Search.GimageSearcher.Search(System.String,System.Int32,Google.API.Search.ImageSize,Google.API.Search.Colorization,Google.API.Search.ImageType,Google.API.Search.FileType)">
+             <summary>
+             Search images.
+             </summary>
+             <param name="keyword">The keyword.</param>
+             <param name="resultCount">The count of result itmes.</param>
+             <param name="imageSize">The size of image.</param>
+             <param name="colorization">The specified colorization of image.</param>
+             <param name="imageType">The special type of image.</param>
+             <param name="fileType">The specified file type of image.</param>
+             <returns>The result itmes.</returns>
+             <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+             <example>
+             This is the c# code example.
+             <code>
+             string keyword = "American Idol";
+             int count = 32;
+             ImageSize imageSize = ImageSize.medium;
+             Colorization colorization = Colorization.gray;
+             ImageType imageType = ImageType.face;
+             FileType fileType = FileType.gif;
+            
+             IList&lt;IImageResult&gt; results = GimageSearcher.Search(keyword, count, imageSize, colorization, imageType, fileType);
+             foreach(IImageResult result in results)
+             {
+                 return string.Format("{0}" + Environment.NewLine + "{1} x {2} - {3}" + Environment.NewLine + "{4}",
+                                      result.Content,
+                                      result.Width,
+                                      result.Height,
+                                      result.Title,
+                                      result.VisibleUrl);
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Google.API.Search.GimageSearcher.Search(System.String,System.Int32,Google.API.Search.ImageSize,Google.API.Search.Colorization,Google.API.Search.ImageType,Google.API.Search.FileType,System.String)">
+             <summary>
+             Search images.
+             </summary>
+             <param name="keyword">The keyword.</param>
+             <param name="resultCount">The count of result itmes.</param>
+             <param name="imageSize">The size of image.</param>
+             <param name="colorization">The specified colorization of image.</param>
+             <param name="imageType">The special type of image.</param>
+             <param name="fileType">The specified file type of image.</param>
+             <param name="site">The specified domain. It will restrict the search to images within this domain.e.g., <c>photobucket.com</c>.</param>
+             <returns>The result itmes.</returns>
+             <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+             <example>
+             This is the c# code example.
+             <code>
+             string keyword = "金城武";
+             int count = 25;
+             ImageSize imageSize = ImageSize.all;
+             Colorization colorization = Colorization.color;
+             ImageType imageType = ImageType.all;
+             FileType fileType = FileType.jpg;
+             string site = "sina.com";
+            
+             IList&lt;IImageResult&gt; results = GimageSearcher.Search(keyword, count, imageSize, colorization, imageType, fileType, site);
+             foreach(IImageResult result in results)
+             {
+                 return string.Format("{0}" + Environment.NewLine + "{1} x {2} - {3}" + Environment.NewLine + "{4}",
+                                      result.Content,
+                                      result.Width,
+                                      result.Height,
+                                      result.Title,
+                                      result.VisibleUrl);
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Google.API.Search.GimageSearcher.Search(System.String,System.Int32,Google.API.Search.SafeLevel,Google.API.Search.ImageSize,Google.API.Search.Colorization,Google.API.Search.ImageType,Google.API.Search.FileType,System.String)">
+             <summary>
+             Search images.
+             </summary>
+             <param name="keyword">The keyword.</param>
+             <param name="resultCount">The count of result itmes.</param>
+             <param name="safeLevel">The search safety level.</param>
+             <param name="imageSize">The size of image.</param>
+             <param name="colorization">The specified colorization of image.</param>
+             <param name="imageType">The special type of image.</param>
+             <param name="fileType">The specified file type of image.</param>
+             <param name="site">The specified domain. It will restrict the search to images within this domain.e.g., <c>photobucket.com</c>.</param>
+             <returns>The result itmes.</returns>
+             <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+             <example>
+             This is the c# code example.
+             <code>
+             string keyword = "Virgin Islands";
+             int count = 15;
+             ImageSize imageSize = ImageSize.xxlarge;
+             Colorization colorization = Colorization.all;
+             ImageType imageType = ImageType.all;
+             FileType fileType = FileType.bmp;
+             string site = null;
+             SafeLevel safeLevel = SafeLevel.active;
+            
+             IList&lt;IImageResult&gt; results = GimageSearcher.Search(keyword, count, imageSize, colorization, imageType, fileType, site, safeLevel);
+             foreach(IImageResult result in results)
+             {
+                 return string.Format("{0}" + Environment.NewLine + "{1} x {2} - {3}" + Environment.NewLine + "{4}",
+                                      result.Content,
+                                      result.Width,
+                                      result.Height,
+                                      result.Title,
+                                      result.VisibleUrl);
+             }
+             </code>
+             </example>
+        </member>
+        <member name="T:Google.API.Search.GblogSearcher">
+            <summary>
+            Utility class for Google Blog Search service.
+            </summary>
+        </member>
+        <member name="M:Google.API.Search.GblogSearcher.Search(System.String,System.Int32)">
+            <summary>
+            Search blogs.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;IBlogResult&gt; results = GblogSearcher.Search("Coldplay", 32);
+            foreach(IBlogResult result in results)
+            {
+                Console.WriteLine("[{0} - {1:d} by {2}] {3} => {4}", result.Title, result.PublishedDate, result.Author, result.Content, result.BlogUrl);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Google.API.Search.GblogSearcher.Search(System.String,System.Int32,Google.API.Search.SortType)">
+            <summary>
+            Search blogs.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="sortBy">The way to order results.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+            <example>
+            This is the c# code example.
+            <code>
+            IList&lt;IBlogResult&gt; results = GblogSearcher.Search("Coldplay", 32, SortType.relevance);
+            foreach(IBlogResult result in results)
+            {
+                Console.WriteLine("[{0} - {1:d} by {2}] {3} => {4}", result.Title, result.PublishedDate, result.Author, result.Content, result.BlogUrl);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="T:Google.API.Search.GblogSearchClient">
+            <summary>
+            The client for blog search.
+            </summary>
+        </member>
+        <member name="M:Google.API.Search.GblogSearchClient.Search(System.String,System.Int32)">
+            <summary>
+            Search blogs.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="M:Google.API.Search.GblogSearchClient.Search(System.String,System.Int32,Google.API.Search.SortType)">
+            <summary>
+            Search blogs.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <param name="resultCount">The count of result itmes.</param>
+            <param name="sortBy">The way to order results.</param>
+            <returns>The result items.</returns>
+            <remarks>Now, the max count of items Google given is <b>32</b>.</remarks>
+        </member>
+        <member name="P:Google.API.Search.GimageResult.GSearchResultClass">
+            <summary>
+            Indicates the "type" of result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GimageResult.Title">
+            <summary>
+            Supplies the title of the image, which is usually the base filename.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GimageResult.TitleNoFormatting">
+            <summary>
+            Supplies the title, but unlike .title, this property is stripped of html markup (e.g., &lt;b&gt;, &lt;i&gt;, etc.)
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GimageResult.UnescapedUrl">
+            <summary>
+            Supplies the raw URL of the result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GimageResult.Url">
+            <summary>
+            Supplies an escaped version of the above URL.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GimageResult.VisibleUrl">
+            <summary>
+            Supplies a shortened version of the URL associated with the result. Typically displayed in green, stripped of a protocol and path.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GimageResult.OriginalContextUrl">
+            <summary>
+            Supplies the URL of the page containing the image.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GimageResult.Width">
+            <summary>
+            Supplies the width of the image in pixels.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GimageResult.Height">
+            <summary>
+            Supplies the height of the image in pixels.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GimageResult.TbWidth">
+            <summary>
+            Supplies the width in pixels of the image thumbnail.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GimageResult.TbHeight">
+            <summary>
+            Supplies the height in pixels of the image thumbnail.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GimageResult.TbUrl">
+            <summary>
+            Supplies the url of a thumbnail image.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GimageResult.Content">
+            <summary>
+            Supplies a brief snippet of information from the page associated with the search result.
+            </summary>
+        </member>
+        <member name="P:Google.API.Search.GimageResult.ContentNoFormatting">
+            <summary>
+            Supplies the same information as .content only stripped of HTML formatting.
+            </summary>
+        </member>
+    </members>
+</doc>
